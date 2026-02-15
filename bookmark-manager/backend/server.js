@@ -8,7 +8,11 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // --- 1. Middleware ---
-app.use(cors());
+app.use(cors({
+  origin: ['https://markit-frontend.onrender.com', 'http://localhost:5173'], // Added localhost so it works for testing too!
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 
 // --- 2. In-Memory Store (Seed Data) ---

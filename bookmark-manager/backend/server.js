@@ -7,9 +7,31 @@ const cheerio = require('cheerio');
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+const allowedOrigins = [
+  'http://localhost:5173',                   // Local Vite
+  'http://localhost:3000',                   // Alternative local port
+  'https://markit-frontend.onrender.com',    // Your Render Frontend (Check this URL matches Render!)
+  /\.onrender\.com$/                         // Matches any subdirectory on Render
+];
+
 // --- 1. Middleware ---
 app.use(cors({
-  origin: ['https://markit-frontend.onrender.com', 'http://localhost:5173'], // Added localhost so it works for testing too!
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    
+    const isAllowed = allowedOrigins.some(allowed => {
+      if (allowed instanceof RegExp) return allowed.test(origin);
+      return allowed === origin;
+    });
+
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      console.log("Blocked by CORS:", origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

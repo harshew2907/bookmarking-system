@@ -1,16 +1,26 @@
-# React + Vite
+# 🔖 MarkIt - Smart Bookmark Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack application built for the Figmenta practical test. This tool allows users to save, search, and categorize web links with a modern, high-performance UI.
 
-Currently, two official plugins are available:
+## ✨ Features
+- **Auto-Metadata Fetching**: Leave the title blank, and the backend will automatically scrape the website's title using Cheerio.
+- **Elite UI**: Responsive glassmorphism design with animated backgrounds.
+- **Real-Time Search**: Filter through your bookmarks by title, URL, or description instantly.
+- **Tagging System**: Organize links with tags and filter the view by clicking on them.
+- **Full CRUD**: Create, Read, Update, and Delete operations fully integrated with a Node.js backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+- **Frontend**: React (Vite), Axios, CSS3 (Custom Elite Styling)
+- **Backend**: Node.js, Express, Cheerio, Axios
+- **Database**: In-memory data store (resets on server restart)
 
-## React Compiler
+## 🚀 How to Run Locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Prerequisites
+Ensure you have **Node.js** installed.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Install Dependencies
+From the root folder, run:
+```bash
+cd backend && npm install
+cd ../frontend && npm install

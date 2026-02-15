@@ -1,0 +1,12 @@
+{
+  "name": "bookmark-manager-root",
+  "scripts": {
+  "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+  "backend": "cd backend && npm run dev",
+  "frontend": "cd frontend && npm run dev"
+    },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+  
+}
